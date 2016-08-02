@@ -17,6 +17,15 @@ LOCAL_PATH := $(call my-dir)
 ifneq ($(filter $(TARGET_DEVICE), roth shieldtablet foster loki hawkeye),)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := NvCamera
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := NvCamera/NvCamera.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := ConsoleUI
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := ConsoleUI/ConsoleUI.apk
