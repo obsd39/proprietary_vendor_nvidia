@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
+ifneq ($(TARGET_TEGRA_VERSION),)
 
 ifeq ($(TARGET_TEGRA_VERSION),t210)
 include $(CLEAR_VARS)

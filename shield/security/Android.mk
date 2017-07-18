@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
+ifneq ($(TARGET_TEGRA_VERSION),)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := run_ss_status.sh
