@@ -1,4 +1,4 @@
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,6 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := TV
-LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := TV/TV.apk
-LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_MODULE_CLASS := APPS
-LOCAL_PRIVILEGED_MODULE := true
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := LeanbackIme
@@ -76,6 +64,16 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_APPS)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := NvCPLSvc
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := NvCPLSvc/NvCPLSvc.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_APPS)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := NvShieldTech
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := NvShieldTech/NvShieldTech.apk
@@ -83,6 +81,5 @@ LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_APPS)
 include $(BUILD_PREBUILT)
-
-endif

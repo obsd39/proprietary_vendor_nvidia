@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Android Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +13,6 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libsensors.hal.nvs
@@ -71,6 +69,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
 
+ifneq ($(TARGET_TEGRA_VERSION),t114)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libmllite
 LOCAL_SRC_FILES := lib/libmllite.so
@@ -81,10 +80,15 @@ LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIB
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
+endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libmplmpu
+ifeq ($(TARGET_TEGRA_VERSION),t114)
+LOCAL_SRC_FILES := lib/libmplmpu.$(TARGET_TEGRA_VERSION).so
+else
 LOCAL_SRC_FILES := lib/libmplmpu.so
+endif
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TARGET_ARCH := arm
@@ -169,5 +173,3 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-
-endif

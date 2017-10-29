@@ -1,4 +1,4 @@
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,24 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(NV_ANDROID_FRAMEWORK_ENHANCEMENTS),TRUE)
+
 # Apk
-# Missing framework hooks, so cannot include service yet
-#PRODUCT_PACKAGES += NvShieldTech
+PRODUCT_PACKAGES += \
+                    NvCPLUpdater \
+                    NvShieldTech
 
 # Libs
 PRODUCT_PACKAGES += \
     libfirmwareupdate \
     liblota \
     libhidraw \
+    libnvcontrol_jni \
     libnvhwc_service \
     libshieldtech \
-    libadaptordecoder
+    nvshieldtech
 
 ifeq ($(TARGET_ARCH),arm64)
 PRODUCT_PACKAGES += \
     libfirmwareupdate_32 \
     liblota_32 \
     libhidraw_32 \
+    libnvcontrol_jni_32 \
     libnvhwc_service_32 \
-    libshieldtech_32
+    libshieldtech_32 \
+    nvshieldtech_32
+endif
+
 endif

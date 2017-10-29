@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Android Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +13,6 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libnvmm
@@ -126,10 +124,9 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
 
-ifeq ($(TARGET_TEGRA_VERSION),t210)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libnvmmlite_video
-LOCAL_SRC_FILES := lib/libnvmmlite_video.t210.so
+LOCAL_SRC_FILES := lib/libnvmmlite_video.$(TARGET_TEGRA_VERSION).so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TARGET_ARCH := arm
@@ -137,18 +134,6 @@ LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIB
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-else
-include $(CLEAR_VARS)
-LOCAL_MODULE := libnvmmlite_video
-LOCAL_SRC_FILES := lib/libnvmmlite_video.t124.so
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_TARGET_ARCH := arm
-LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIBRARIES)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := nvidia
-include $(BUILD_PREBUILT)
-endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libnvmmlite_utils
@@ -160,5 +145,3 @@ LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIB
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-
-endif

@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Android Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +13,6 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := run_ss_status.sh
@@ -100,7 +98,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libtlk_secure_hdcp_up
-LOCAL_SRC_FILES := lib/libtlk_secure_hdcp_up.so
+LOCAL_SRC_FILES := lib/libtlk_secure_hdcp_up.$(TARGET_TEGRA_VERSION).so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TARGET_ARCH := arm
@@ -109,10 +107,9 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
 
-ifeq ($(TARGET_TEGRA_VERSION),t210)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libtsec_wrapper
-LOCAL_SRC_FILES := lib/libtsec_wrapper.t210.so
+LOCAL_SRC_FILES := lib/libtsec_wrapper.$(TARGET_TEGRA_VERSION).so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TARGET_ARCH := arm
@@ -120,22 +117,14 @@ LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIB
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-else
-include $(CLEAR_VARS)
-LOCAL_MODULE := libtsec_wrapper
-LOCAL_SRC_FILES := lib/libtsec_wrapper.t124.so
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_TARGET_ARCH := arm
-LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_SHARED_LIBRARIES)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := nvidia
-include $(BUILD_PREBUILT)
-endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libtsechdcp
+ifeq ($(TARGET_TEGRA_VERSION),t114)
+LOCAL_SRC_FILES := lib/libtsechdcp.$(TARGET_TEGRA_VERSION).so
+else
 LOCAL_SRC_FILES := lib/libtsechdcp.so
+endif
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_TARGET_ARCH := arm
@@ -215,5 +204,3 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/app/eks2
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-
-endif

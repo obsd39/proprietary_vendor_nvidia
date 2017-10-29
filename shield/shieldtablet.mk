@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,14 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 $(call inherit-product, vendor/nvidia/shield/shieldtablet-generated.mk)
+$(call inherit-product, vendor/nvidia/shield/shieldtablet-recovery.mk)
 $(call inherit-product, vendor/nvidia/shield/app/shieldtech.mk)
-#$(call inherit-product, vendor/nvidia/shield/app/blakepairing.mk)
+$(call inherit-product, vendor/nvidia/shield/app/blakepairing.mk)
 $(call inherit-product, vendor/nvidia/shield/app/consoleui.mk)
 $(call inherit-product, vendor/nvidia/shield/app/nvcamera.mk)
 $(call inherit-product, vendor/nvidia/shield/ussrd/ussrd.mk)
+$(call inherit-product, vendor/nvidia/shield/widevine/widevine.mk)
 
 # Scripts and non exe/shared objects
 PRODUCT_PACKAGES += run_ss_status.sh \
@@ -30,7 +30,7 @@ PRODUCT_PACKAGES += run_ss_status.sh \
                     hdcp2xtest
 
 # Firmware
-PRODUCT_PACKAGES += enctune \
+PRODUCT_PACKAGES += \
                     model_frontal \
                     nvram_43241 \
                     bcm43241 \

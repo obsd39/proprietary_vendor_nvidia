@@ -1,3 +1,17 @@
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the License);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an AS IS BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 PRODUCT_PACKAGES += \
                     audio.primary.tegra_32 \
                     libnvos_32 \
@@ -39,7 +53,6 @@ PRODUCT_PACKAGES += \
                     libnvhwc_service_32 \
                     libtlk_secure_hdcp_up_32 \
                     libtsechdcp_32 \
-                    keystore.tegra_32 \
                     memtrack.tegra_32 \
                     vulkan.tegra_32 \
                     hdmi_cec.tegra \
@@ -55,7 +68,9 @@ PRODUCT_PACKAGES += \
                     libnvhwc_service \
                     libtlk_secure_hdcp_up \
                     libtsechdcp \
-                    keystore.tegra \
+                    gatekeeper.tegra \
+                    keystore.v0.tegra \
+                    keystore.v1.tegra \
                     memtrack.tegra \
                     vulkan.tegra \
                     sensors.default.api_v1.4.mpl530.nvs \
@@ -68,8 +83,6 @@ PRODUCT_PACKAGES += \
                     eks2_client \
                     tlk_daemon \
                     ss_status \
-                    libtsec_wrapper_32 \
-                    libtsec_wrapper \
                     libEGL_tegra_32 \
                     libtsec_wrapper_32 \
                     libnvglsi_32 \
@@ -108,13 +121,8 @@ PRODUCT_PACKAGES += \
                     libnvomxilclient_32 \
                     nvtouch_daemon_32 \
                     liblr388k7_32 \
-                    libwvm_32 \
-                    libWVStreamControlAPI_L1_32 \
-                    liboemcrypto_32 \
-                    libdrmdecrypt_32 \
-                    libdrmwvmplugin_32 \
-                    libwvdrm_L1_32 \
-                    libwvdrmengine_32 \
+                    libcuda_32 \
+                    libcuda \
                     pbc2 \
                     pbc.tegra \
                     pbc.tegra_32

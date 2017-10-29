@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Android Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BOARD_PLATFORM),tegra)
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := gps_select
 LOCAL_SRC_FILES := bin/gps_select.sh
@@ -26,7 +24,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
 
-ifeq ($(TARGET_ARCH),arm)
 include $(CLEAR_VARS)
 LOCAL_MODULE := glgps_nvidiaTegra2android
 LOCAL_SRC_FILES := bin32/glgps_nvidiaTegra2android
@@ -36,7 +33,6 @@ LOCAL_MODULE_PATH := $($(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_VENDOR_EXECUTABLE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := gps.brcm
@@ -49,15 +45,15 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE := glgps_nvidiaTegra2android
-LOCAL_SRC_FILES := bin64/glgps_nvidiaTegra2android
-LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_MODULE_TARGET_ARCH := arm64
-LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := nvidia
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := glgps_nvidiaTegra2android
+#LOCAL_SRC_FILES := bin64/glgps_nvidiaTegra2android
+#LOCAL_MODULE_CLASS := EXECUTABLES
+#LOCAL_MODULE_TARGET_ARCH := arm64
+#LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE_OWNER := nvidia
+#include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := gps.brcm
@@ -69,5 +65,3 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := nvidia
 include $(BUILD_PREBUILT)
-
-endif

@@ -1,0 +1,2 @@
+PRODUCT_PACKAGES += \
+                    libprotobuf-cpp-lite_32 \
