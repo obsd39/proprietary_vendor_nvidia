@@ -14,16 +14,25 @@
 
 PRODUCT_PACKAGES += \
                     audio.primary.tegra \
+                    libaudioavp \
+                    libnvavp \
                     libnvos \
                     libcplconnectclient \
-                    libnvoice \
-                    libnvaudiofx \
-                    gralloc.tegra \
-                    libnvddk_2d_v2 \
-                    libardrv_dynamic \
                     libnvrm \
                     libnvrm_graphics \
+                    libnvaudioservice \
+                    libnvcapaudioservice \
+                    libnvcapclk \
+                    libnvddk_2d_v2 \
+                    libardrv_dynamic \
                     libnvcms \
+                    libnvmm_utils \
+                    libnvfusebypass \
+                    libnvmm_service \
+                    libnvmm_manager \
+                    libstlport \
+                    libnvoice \
+                    gralloc.tegra \
                     hwcomposer.tegra \
                     libtsechdcp \
                     libnvtestio \
@@ -52,8 +61,6 @@ PRODUCT_PACKAGES += \
                     glgps_nvidiaTegra2android \
                     gps.brcm \
                     libnvmm_audio \
-                    libnvmm_utils \
-                    libnvavp \
                     libnvmm \
                     libnvmm_msaudio \
                     libnvmm_parser \
@@ -66,11 +73,8 @@ PRODUCT_PACKAGES += \
                     libnvparser \
                     libnvtvmr \
                     libnvmmlite_video \
-                    libnvfusebypass \
                     libnvomx \
                     libnvodm_imager \
                     libnvodm_query \
                     libnvomxadaptor \
-                    libnvomxilclient \
-                    liboemcrypto \
-                    libstlport
+                    libnvomxilclient

@@ -16,7 +16,7 @@ $(call inherit-product, vendor/nvidia/shield/foster-generated.mk)
 $(call inherit-product, vendor/nvidia/shield/foster-recovery.mk)
 $(call inherit-product, vendor/nvidia/shield/app/shieldtech.mk)
 $(call inherit-product, vendor/nvidia/shield/app/blakepairing.mk)
-#$(call inherit-product, vendor/nvidia/shield/app/consoleui.mk)
+$(call inherit-product, vendor/nvidia/shield/app/consoleui.mk)
 $(call inherit-product, vendor/nvidia/shield/app/nvcamera.mk)
 $(call inherit-product, vendor/nvidia/shield/ussrd/ussrd.mk)
 $(call inherit-product, vendor/nvidia/shield/widevine/widevine.mk)
@@ -102,3 +102,6 @@ PRODUCT_PACKAGES += para_10_02_00_a0 \
                     para_10_09_00_c0 \
                     para_10_09_02_c0 \
                     para_10_0b_00_a0
+
+# Variant oemcrypto
+PRODUCT_PACKAGES += liboemcrypto.loki
