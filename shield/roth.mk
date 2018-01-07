@@ -24,9 +24,6 @@ PRODUCT_PACKAGES += gps_select \
                     hdcp2x \
                     hdcp2xtest
 
-# Bootloader update
-PRODUCT_PACKAGES += blob
-
 # Firmware
 PRODUCT_PACKAGES += \
                     nvram_43241 \
@@ -38,3 +35,6 @@ PRODUCT_PACKAGES += \
                     nvavp_vid_ucode_alt \
                     nvhost_msenc02 \
                     nvhost_tsec
+
+# Oemcrypto
+PRODUCT_PACKAGES += libstlport

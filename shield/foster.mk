@@ -17,7 +17,7 @@ $(call inherit-product, vendor/nvidia/shield/foster-recovery.mk)
 $(call inherit-product, vendor/nvidia/shield/app/shieldtech.mk)
 $(call inherit-product, vendor/nvidia/shield/app/blakepairing.mk)
 $(call inherit-product, vendor/nvidia/shield/app/consoleui.mk)
-$(call inherit-product, vendor/nvidia/shield/app/nvcamera.mk)
+#$(call inherit-product, vendor/nvidia/shield/app/nvcamera.mk)
 $(call inherit-product, vendor/nvidia/shield/ussrd/ussrd.mk)
 $(call inherit-product, vendor/nvidia/shield/widevine/widevine.mk)
 
@@ -78,6 +78,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += run_ss_status.sh \
                     gps_select \
                     eks2.dat \
+                    eks2_darcy.dat \
                     hdcp1x \
                     hdcp2x \
                     hdcp2xtest
@@ -104,4 +105,5 @@ PRODUCT_PACKAGES += para_10_02_00_a0 \
                     para_10_0b_00_a0
 
 # Variant oemcrypto
-PRODUCT_PACKAGES += liboemcrypto.loki
+PRODUCT_PACKAGES += liboemcrypto.loki \
+                    liboemcrypto.darcy
