@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
                     libnvfnet \
                     libnvfnetstorehdfx \
                     libnvfnetstoredefog \
+                    libprotobuf-cpp-lold \
                     libnvcamerahdr_v3 \
                     libnvcameranrr \
                     libnvcudautils \
@@ -79,6 +80,7 @@ PRODUCT_PACKAGES += \
                     libnvcpl \
                     libGLESv1_CM_tegra \
                     libglcore \
+                    libw \
                     libGLESv2_tegra \
                     libnvRSDriver \
                     libnvRSCompiler \

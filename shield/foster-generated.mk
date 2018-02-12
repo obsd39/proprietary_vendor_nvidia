@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
                     libnvfnet_32 \
                     libnvfnetstorehdfx_32 \
                     libnvfnetstoredefog_32 \
+                    libprotobuf-cpp-lold_32 \
                     libnvcamerahdr_v3_32 \
                     libnvcameranrr_32 \
                     libnvcudautils_32 \
@@ -93,6 +94,7 @@ PRODUCT_PACKAGES += \
                     libnvcpl_32 \
                     libGLESv1_CM_tegra_32 \
                     libglcore_32 \
+                    libw_32 \
                     libGLESv2_tegra_32 \
                     libnvRSDriver_32 \
                     libnvRSCompiler_32 \
